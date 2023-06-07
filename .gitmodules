@@ -1,0 +1,3 @@
+[submodule "STM32_USB_Device_Library-v2.11.1"]
+	path = STM32_USB_Device_Library-v2.11.1
+	url = https://github.com/STMicroelectronics/stm32_mw_usb_device.git
