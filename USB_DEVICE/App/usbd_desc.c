@@ -62,13 +62,13 @@
   * @{
   */
 
-#define USBD_VID     1155
-#define USBD_LANGID_STRING     1033
-#define USBD_MANUFACTURER_STRING     "STMicroelectronics"
-#define USBD_PID     22352
-#define USBD_PRODUCT_STRING     "STM32 Custom Human interface"
-#define USBD_CONFIGURATION_STRING     "Custom HID Config"
-#define USBD_INTERFACE_STRING     "Custom HID Interface"
+#define USBD_VID     0x05BD // Rafi
+#define USBD_LANGID_STRING     1033 // English
+#define USBD_MANUFACTURER_STRING     "RAFI GmbH & Co. KG"
+#define USBD_PID     0x3102 // Custom Touch Gateway product ID
+#define USBD_PRODUCT_STRING     "RAFI Glasscape Touch"
+#define USBD_CONFIGURATION_STRING     "Custom HID Config" // TODO
+#define USBD_INTERFACE_STRING     "Custom HID Interface" // TODO
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
