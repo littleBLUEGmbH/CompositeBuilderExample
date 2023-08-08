@@ -22,7 +22,7 @@
 #include "usbd_custom_hid_if_1.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+#include "LibConfig.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,7 +75,7 @@
   */
 
 /* USER CODE BEGIN PRIVATE_MACRO */
-
+#define USBD_CUSTOM_HID_1_REPORT_DESC_SIZE HID_VENDOR_REPORT_DESCRIPTOR_SIZE
 /* USER CODE END PRIVATE_MACRO */
 
 /**

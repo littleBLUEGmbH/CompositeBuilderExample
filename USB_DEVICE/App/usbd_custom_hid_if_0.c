@@ -22,7 +22,7 @@
 #include "usbd_custom_hid_if_0.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+#include "LibConfig.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,6 +101,9 @@
 
 #define REPORTID_MTOUCH         0x01
 #define REPORTID_MAX_COUNT      0x02
+#define REPORTID_CONFIG     0x03
+#define REPORTID_CALIBRATION  0x04
+#define REPORTID_MOUSE_S_TOUCH      0x05
 
 /* USER CODE END PRIVATE_DEFINES */
 
@@ -114,6 +117,8 @@
   */
 
 /* USER CODE BEGIN PRIVATE_MACRO */
+
+#define USBD_CUSTOM_HID_0_REPORT_DESC_SIZE  HID_MULTI_TOUCH_REPORT_DESCRIPTOR_SIZE
 
 /* USER CODE END PRIVATE_MACRO */
 
@@ -227,7 +232,7 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_0_ReportDesc_FS[USBD_CUSTOM_HID_0_REPORT
   0x95, 0x01,                         //     REPORT_COUNT (1)
   0x75, 0x08,                         //     REPORT_SIZE (8)
   0x09, 0x55,                         //     USAGE(Maximum Count)
-  0x25, USB_HID_MAX_CONTACT_COUNT,   //     LOGICAL_MAXIMUM (10)
+  0x25, LIBCONFIG_USB_HID_MAX_CONTACT_COUNT,   //     LOGICAL_MAXIMUM (10)
   0xB1, 0x02,                         //     FEATURE (Data,Var,Abs)
   // 0xc0,                                // END_COLLECTION
   // 15 elements

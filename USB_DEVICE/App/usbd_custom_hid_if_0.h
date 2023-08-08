@@ -50,18 +50,6 @@
 
 /* USER CODE BEGIN EXPORTED_DEFINES */
 
- /* Touch screen sensor resolution. */
- #define X_RES_USB_MSB           (USB_TOUCH_HORI_AXIS_RESOLUTION >> 8)
- #define X_RES_USB_LSB           (USB_TOUCH_HORI_AXIS_RESOLUTION & 0xFF)
- #define Y_RES_USB_MSB           (USB_TOUCH_VERT_AXIS_RESOLUTION >> 8)
- #define Y_RES_USB_LSB           (USB_TOUCH_VERT_AXIS_RESOLUTION & 0xFF)
-
- /* Touch screen sensor physical dimensions. */
- #define X_SIZE_USB_MSB          ((USB_TOUCH_HORI_AXIS_PHYS_SIZE) >> 8)
- #define X_SIZE_USB_LSB          ((USB_TOUCH_HORI_AXIS_PHYS_SIZE) & 0xFF)
- #define Y_SIZE_USB_MSB          ((USB_TOUCH_VERT_AXIS_PHYS_SIZE) >> 8)
- #define Y_SIZE_USB_LSB          ((USB_TOUCH_VERT_AXIS_PHYS_SIZE) & 0xFF)
-
 /* USER CODE END EXPORTED_DEFINES */
 
 /**
