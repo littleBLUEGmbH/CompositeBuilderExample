@@ -226,20 +226,6 @@ void EXTI15_10_IRQHandler(void)
 	/* USER CODE END EXTI15_10_IRQn 1 */
 }
 
-/**
- * @brief This function handles USB wake-up interrupt through EXTI line 18.
- */
-void USBWakeUp_IRQHandler(void)
-{
-	/* USER CODE BEGIN USBWakeUp_IRQn 0 */
-
-	/* USER CODE END USBWakeUp_IRQn 0 */
-	HAL_PCD_IRQHandler(&hpcd_USB_FS);
-	/* USER CODE BEGIN USBWakeUp_IRQn 1 */
-
-	/* USER CODE END USBWakeUp_IRQn 1 */
-}
-
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
