@@ -39,24 +39,11 @@
 #include "usbd_custom_hid_if_1.h"
 #include "usbd_composite_builder.h"
 
+#include "LibConfig.h"
+
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
-/* Private variables ---------------------------------------------------------*/
-/* Defines the report size number of each report descriptor */
-#if (LIBCONFIG_USB_MULTITOUCH_BY_DEFAULT==1)
-#define HID_MULTI_TOUCH_REPORT_DESCRIPTOR_SIZE (66+(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT*65))
-#else
-#define HID_MULTI_TOUCH_REPORT_DESCRIPTOR_SIZE (160+(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT*65))
-#endif
-#define HID_ALPHA_REPORT_DESCRIPTOR_SIZE 0x003F
-#define HID_MOUSE_REPORT_DESCRIPTOR_SIZE 0x0034
-#define HID_VENDOR_REPORT_DESCRIPTOR_SIZE 0x249
-
-/* Defines the descriptor sizes of device and config descriptor */
-#define HID_DEVICE_DESC_SIZE                18
-#define HID_CONFIG_DESC_SIZE                LE(0x0042)     //Totallength (= 9+9+9+7+9+9+7+7)
-
 
 /* USER CODE END PV */
 
@@ -85,29 +72,29 @@ uint8_t USBD_CustomHID_ep_1[4] = {0x82, 0x02, 0x83, 0x03};
 /* USER CODE END 1 */
 
 /**
- * Init USB device Library, add supported class and start the library
- * @retval None
- */
+  * Init USB device Library, add supported class and start the library
+  * @retval None
+  */
 void MX_USB_Device_Init(void)
 {
-	/* USER CODE BEGIN USB_Device_Init_PreTreatment */
+  /* USER CODE BEGIN USB_Device_Init_PreTreatment */
 #if 0
-	/* USER CODE END USB_Device_Init_PreTreatment */
+  /* USER CODE END USB_Device_Init_PreTreatment */
 
-	/* Init Device Library, add supported class and start the library. */
-	if (USBD_Init(&hUsbDeviceFS, &CUSTOM_HID_Desc, DEVICE_FS) != USBD_OK) {
-		Error_Handler();
-	}
-	if (USBD_RegisterClass(&hUsbDeviceFS, &USBD_CUSTOM_HID) != USBD_OK) {
-		Error_Handler();
-	}
-	if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS) != USBD_OK) {
-		Error_Handler();
-	}
-	if (USBD_Start(&hUsbDeviceFS) != USBD_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN USB_Device_Init_PostTreatment */
+  /* Init Device Library, add supported class and start the library. */
+  if (USBD_Init(&hUsbDeviceFS, &CUSTOM_HID_Desc, DEVICE_FS) != USBD_OK) {
+    Error_Handler();
+  }
+  if (USBD_RegisterClass(&hUsbDeviceFS, &USBD_CUSTOM_HID) != USBD_OK) {
+    Error_Handler();
+  }
+  if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS) != USBD_OK) {
+    Error_Handler();
+  }
+  if (USBD_Start(&hUsbDeviceFS) != USBD_OK) {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_Device_Init_PostTreatment */
 #endif
 
 	/* Init Device Library, add supported class and start the library. */
@@ -136,14 +123,14 @@ void MX_USB_Device_Init(void)
 		Error_Handler();
 	}
 
-	/* USER CODE END USB_Device_Init_PostTreatment */
+  /* USER CODE END USB_Device_Init_PostTreatment */
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 

@@ -65,7 +65,7 @@
 #define USBD_VID     0x05BD // Rafi
 #define USBD_LANGID_STRING     1033 // English
 #define USBD_MANUFACTURER_STRING     "RAFI GmbH & Co. KG"
-#define USBD_PID     0x3102 // Custom Touch Gateway product ID
+#define USBD_PID     0x3104
 #define USBD_PRODUCT_STRING     "RAFI Glasscape Touch"
 #define USBD_CONFIGURATION_STRING     "Custom HID Config" // TODO
 #define USBD_INTERFACE_STRING     "Custom HID Interface" // TODO
