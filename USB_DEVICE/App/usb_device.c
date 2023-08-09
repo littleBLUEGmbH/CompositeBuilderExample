@@ -61,8 +61,10 @@ extern USBD_DescriptorsTypeDef CUSTOM_HID_Desc;
  * -- Insert your variables declaration here --
  */
 /* USER CODE BEGIN 0 */
-uint8_t USBD_CustomHID_ep_0[1] = {0x81};
-uint8_t USBD_CustomHID_ep_1[4] = {0x82, 0x02, 0x83, 0x03};
+
+uint8_t USBD_CustomHID_ep[] = {0x81, 0x01, 0x83, 0x03};
+// uint8_t USBD_CustomHID_ep_0[] = {0x81, 0x01};
+// uint8_t USBD_CustomHID_ep_1[] = {0x83, 0x03};
 /* USER CODE END 0 */
 
 /*
@@ -106,15 +108,11 @@ void MX_USB_Device_Init(void)
 	{
 		Error_Handler();
 	}
-	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep_0) != USBD_OK)
-	{
-		Error_Handler();
-	}
 	if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS_1) != USBD_OK)
 	{
 		Error_Handler();
 	}
-	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep_1) != USBD_OK)
+	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep) != USBD_OK)
 	{
 		Error_Handler();
 	}
