@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file           : usbd_custom_hid_if.c
-  * @version        : v3.0_Cube
+  * @version        : v2.0_Cube
   * @brief          : USB Device Custom HID interface file.
   ******************************************************************************
   * @attention
