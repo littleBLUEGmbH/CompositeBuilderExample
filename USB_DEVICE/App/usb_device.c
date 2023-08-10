@@ -62,9 +62,16 @@ extern USBD_DescriptorsTypeDef CUSTOM_HID_Desc;
  */
 /* USER CODE BEGIN 0 */
 
-uint8_t USBD_CustomHID_ep[] = {0x81, 0x01, 0x83, 0x03};
-// uint8_t USBD_CustomHID_ep_0[] = {0x81, 0x01};
-// uint8_t USBD_CustomHID_ep_1[] = {0x83, 0x03};
+#define USE_CUSTOM_HID_0 1
+#define USE_CUSTOM_HID_1 1
+
+// uint8_t USBD_CustomHID_ep[] = {0x81, 0x01, 0x83, 0x03};
+#if USE_CUSTOM_HID_0
+uint8_t USBD_CustomHID_ep_0[] = {0x81, 0x01};
+#endif
+#if USE_CUSTOM_HID_1
+uint8_t USBD_CustomHID_ep_1[] = {0x83, 0x03};
+#endif
 /* USER CODE END 0 */
 
 /*
@@ -104,18 +111,30 @@ void MX_USB_Device_Init(void)
 	{
 		Error_Handler();
 	}
+#if USE_CUSTOM_HID_0
 	if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS_0) != USBD_OK)
 	{
 		Error_Handler();
 	}
+#endif
+#if USE_CUSTOM_HID_1
 	if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS_1) != USBD_OK)
 	{
 		Error_Handler();
 	}
-	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep) != USBD_OK)
+#endif
+#if USE_CUSTOM_HID_0
+	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep_0) != USBD_OK)
 	{
 		Error_Handler();
 	}
+#endif
+#if USE_CUSTOM_HID_1
+	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep_1) != USBD_OK)
+	{
+		Error_Handler();
+	}
+#endif
 	if (USBD_Start(&hUsbDeviceFS) != USBD_OK)
 	{
 		Error_Handler();
