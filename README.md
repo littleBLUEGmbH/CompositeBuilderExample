@@ -8,6 +8,8 @@ The first interface is a HID multitouch, the second a vendor specific HID interf
 
 The hardware initialization is done with STM32CubeMX generated code.
 
+Right now only the "Debug" configuration is supported and set.
+
 ## Successor to STM32F373 legacy code
 
 The STM32G4 project is a successor to an existing STM32F373 project that was configured with a heavily patched version of the STM32_USB-FS-Device_Driver.
