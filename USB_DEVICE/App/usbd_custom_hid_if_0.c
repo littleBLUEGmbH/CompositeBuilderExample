@@ -135,7 +135,7 @@
 __ALIGN_BEGIN static uint8_t CUSTOM_HID_0_ReportDesc_FS[USBD_CUSTOM_HID_0_REPORT_DESC_SIZE] __ALIGN_END =
 {
   /* USER CODE BEGIN 0 */
-#ifdef USB_HID_USE_MOUSE_PAD    /* Use MousePad as interface */
+#ifdef LIBCONFIG_USB_HID_USE_MOUSE_PAD    /* Use MousePad as interface */
   0x05, 0x01,                        // Usage Page (Generic Desktop)
   0x09, 0x02,// Usage (Mouse)
   0xA1, 0x01,// Collection (Application)
@@ -172,38 +172,38 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_0_ReportDesc_FS[USBD_CUSTOM_HID_0_REPORT
   0x55, 0x0F,                         //   UNIT_EXPONENT (-1)
   // 14 elements
   /* Descriptor for contacts defined in a #define in the header of this file */
-#if(USB_HID_MAX_CONTACT_COUNT >0)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >0)
   CONTACT, /*contact0*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >1)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >1)
   CONTACT, /*contact1*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >2)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >2)
   CONTACT, /*contact2*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >3)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >3)
   CONTACT, /*contact3*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >4)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >4)
   CONTACT, /*contact4*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >5)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >5)
   CONTACT, /*contact5*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >6)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >6)
   CONTACT, /*contact6*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >7)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >7)
   CONTACT, /*contact7*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >8)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >8)
   CONTACT, /*contact8*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >9)
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >9)
   CONTACT, /*contact9*/
 #endif
-#if(USB_HID_MAX_CONTACT_COUNT >10)
-#warning USB_HID_MAX_CONTACT_COUNT > 10  /* More than 10 contacts defined --> WARNING */
+#if(LIBCONFIG_USB_HID_MAX_CONTACT_COUNT >10)
+#warning LIBCONFIG_USB_HID_MAX_CONTACT_COUNT > 10  /* More than 10 contacts defined --> WARNING */
 #endif
   // 65 elements each finger
   // Contact Count
@@ -237,7 +237,7 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_0_ReportDesc_FS[USBD_CUSTOM_HID_0_REPORT
   // 0xc0,                                // END_COLLECTION
   // 15 elements
 
-#if (USB_MULTITOUCH_BY_DEFAULT==0)
+#if (LIBCONFIG_USB_MULTITOUCH_BY_DEFAULT==0)
   // Feature Report Touch Config
   0x09, 0x0E,                         // USAGE (Device Configuration)
   0xa1, 0x01,                         // COLLECTION (Application)
@@ -290,7 +290,7 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_0_ReportDesc_FS[USBD_CUSTOM_HID_0_REPORT
   0xc0,                                  //     END_COLLECTION
   // 0xc0                                   //    END_COLLECTION     // 254
   // 68 elements    /* 123 elements
-#endif	/* USB_MULTITOUCH_BY_DEFAULT==0 */
+#endif	/* LIBCONFIG_USB_MULTITOUCH_BY_DEFAULT==0 */
 #endif /* #ifdef USB_HID_USE_MOUSE_PAD #else */
   /* USER CODE END 0 */
   0xC0    /*     END_COLLECTION	             */
