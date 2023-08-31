@@ -116,20 +116,16 @@ void MX_USB_Device_Init(void)
 	{
 		Error_Handler();
 	}
-#endif
-#if USE_CUSTOM_HID_1
-	if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS_1) != USBD_OK)
-	{
-		Error_Handler();
-	}
-#endif
-#if USE_CUSTOM_HID_0
 	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep_0) != USBD_OK)
 	{
 		Error_Handler();
 	}
 #endif
 #if USE_CUSTOM_HID_1
+	if (USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceFS, &USBD_CustomHID_fops_FS_1) != USBD_OK)
+	{
+		Error_Handler();
+	}
 	if (USBD_RegisterClassComposite(&hUsbDeviceFS, &USBD_CUSTOM_HID, CLASS_TYPE_CHID, USBD_CustomHID_ep_1) != USBD_OK)
 	{
 		Error_Handler();
