@@ -333,6 +333,7 @@ static int8_t CUSTOM_HID_0_OutEvent_FS(uint8_t event_idx, uint8_t state);
 USBD_CUSTOM_HID_ItfTypeDef USBD_CustomHID_fops_FS_0 =
 {
   CUSTOM_HID_0_ReportDesc_FS,
+  USBD_CUSTOM_HID_0_REPORT_DESC_SIZE,
   CUSTOM_HID_0_Init_FS,
   CUSTOM_HID_0_DeInit_FS,
   CUSTOM_HID_0_OutEvent_FS
