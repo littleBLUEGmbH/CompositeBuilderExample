@@ -41,6 +41,12 @@ With these modifications the device is enumerated and the descriptors can be rea
   * Some strings are different
 * The is an error (on linux): "hid-multitouch ... : failed to fetch feature 2"; this is out of the scope of this repository but needs to be addressed in the future
 
+Communicating with the endpoints does not work yet:
+
+* When data is written to interface 1 (see "test_itf_1_echo.py"), we expect the function "CUSTOM_HID_1_OutEvent_FS" to be called
+* This has been confirmed with a simple CustomHID application (not a composite device)
+* Possibly still a bug in the STM32_USB_Device_Library?
+
 ## Tools
 
 * <https://www.thesycon.de/eng/usb_descriptordumper.shtml>(Thesycon USB Descriptor Dumper v2.17.0): used to create the "DescriptorDump*.txt" files
