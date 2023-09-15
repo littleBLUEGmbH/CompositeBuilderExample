@@ -4,3 +4,4 @@
 /.mxproject
 *.launch
 /build-*/
+CMakeLists.txt.user
