@@ -531,6 +531,9 @@ static int8_t CUSTOM_HID_1_OutEvent_FS(uint8_t event_idx, uint8_t state)
   UNUSED(event_idx);
   UNUSED(state);
 
+  // TODO if we send data to interface 1 we expect a callback here. This never
+  //      happens. Why?
+
   /* Start next USB packet transfer once data processing is completed */
   if (USBD_CUSTOM_HID_ReceivePacket(&hUsbDeviceFS) != (uint8_t)USBD_OK)
   {
