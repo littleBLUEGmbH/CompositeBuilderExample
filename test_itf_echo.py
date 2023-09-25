@@ -6,7 +6,8 @@ def open(vid, pid, itf=-1):
     infos = hid.enumerate(vid=vid, pid=pid)
     vendor_info = None
 
-    # print(infos)
+    print("Found interfaces:")
+    print(infos)
 
     for info in infos:
         if info["interface_number"] == itf:
