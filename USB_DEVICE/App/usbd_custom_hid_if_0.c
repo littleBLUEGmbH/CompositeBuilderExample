@@ -22,6 +22,7 @@
 #include "usbd_custom_hid_if_0.h"
 
 /* USER CODE BEGIN INCLUDE */
+#include <string.h>
 #include "LibConfig.h"
 /* USER CODE END INCLUDE */
 
@@ -31,7 +32,7 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
+static uint8_t buffer[CUSTOM_HID_EPOUT_SIZE];
 /* USER CODE END PV */
 
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
@@ -379,6 +380,17 @@ static int8_t CUSTOM_HID_0_OutEvent_FS(uint8_t event_idx, uint8_t state)
   /* USER CODE BEGIN 6 */
   UNUSED(event_idx);
   UNUSED(state);
+
+  // TODO if we send data to interface 1 we expect a callback here. This never
+  //      happens. Why?
+  uint32_t classId = 1; // TODO where do we get the classId for this instance?
+  USBD_CUSTOM_HID_HandleTypeDef *hhid = (USBD_CUSTOM_HID_HandleTypeDef *)hUsbDeviceFS.pClassDataCmsit[classId];
+
+  memcpy(buffer, hhid->Report_buf, 64);
+
+  strncat((char *)buffer, " ECHO ITF 0!", 63);
+
+  USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, buffer, 64, classId);
 
   /* Start next USB packet transfer once data processing is completed */
   if (USBD_CUSTOM_HID_ReceivePacket(&hUsbDeviceFS) != (uint8_t)USBD_OK)

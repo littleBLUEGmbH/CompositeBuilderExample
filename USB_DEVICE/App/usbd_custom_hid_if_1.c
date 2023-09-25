@@ -23,6 +23,7 @@
 
 /* USER CODE BEGIN INCLUDE */
 #include "LibConfig.h"
+#include <string.h>
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -448,7 +449,7 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_1_ReportDesc_FS[USBD_CUSTOM_HID_1_REPORT
 };
 
 /* USER CODE BEGIN PRIVATE_VARIABLES */
-
+static uint8_t buffer[CUSTOM_HID_EPOUT_SIZE];
 /* USER CODE END PRIVATE_VARIABLES */
 
 /**
@@ -533,6 +534,14 @@ static int8_t CUSTOM_HID_1_OutEvent_FS(uint8_t event_idx, uint8_t state)
 
   // TODO if we send data to interface 1 we expect a callback here. This never
   //      happens. Why?
+
+  USBD_CUSTOM_HID_HandleTypeDef *hhid = (USBD_CUSTOM_HID_HandleTypeDef *)hUsbDeviceFS.pClassDataCmsit[hUsbDeviceFS.classId];
+
+  memcpy(buffer, hhid->Report_buf, 64);
+
+  strncat((char *)buffer, " ECHO ITF 1!", 63);
+
+  USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, buffer, 64, hUsbDeviceFS.classId);
 
   /* Start next USB packet transfer once data processing is completed */
   if (USBD_CUSTOM_HID_ReceivePacket(&hUsbDeviceFS) != (uint8_t)USBD_OK)
