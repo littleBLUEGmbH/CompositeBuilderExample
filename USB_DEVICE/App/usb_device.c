@@ -65,12 +65,11 @@ extern USBD_DescriptorsTypeDef CUSTOM_HID_Desc;
 #define USE_CUSTOM_HID_0 1
 #define USE_CUSTOM_HID_1 1
 
-// uint8_t USBD_CustomHID_ep[] = {0x81, 0x01, 0x83, 0x03};
 #if USE_CUSTOM_HID_0
 uint8_t USBD_CustomHID_ep_0[] = {0x81, 0x01};
 #endif
 #if USE_CUSTOM_HID_1
-uint8_t USBD_CustomHID_ep_1[] = {0x83, 0x03};
+uint8_t USBD_CustomHID_ep_1[] = {0x82, 0x02};
 #endif
 /* USER CODE END 0 */
 
