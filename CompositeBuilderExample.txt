@@ -1,6 +1,6 @@
 Configuration	CompositeBuilderExample
 STM32CubeMX 	6.8.0
-Date	08/08/2023
+Date	09/25/2023
 MCU	STM32G474RETx
 
 
@@ -72,7 +72,7 @@ SOFTWARE PROJECT
 
 Project Settings : 
 Project Name : CompositeBuilderExample
-Project Folder : /media/Projekte/037/CompositeBuilderExample
+Project Folder : /media/Projekte/037/037083/Versuche/CompositeBuilderExample
 Toolchain / IDE : STM32CubeIDE
 Firmware Package Name and Version : STM32Cube FW_G4 V1.5.1
 
