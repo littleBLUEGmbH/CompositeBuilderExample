@@ -1,3 +1,4 @@
-[submodule "STM32_USB_Device_Library-v2.11.1"]
-	path = STM32_USB_Device_Library-v2.11.1
+[submodule "STM32_USB_Device_Library"]
+	path = STM32_USB_Device_Library
 	url = https://github.com/littleBLUEGmbH/stm32_mw_usb_device.git
+	branch = different_customhid_report_sizes

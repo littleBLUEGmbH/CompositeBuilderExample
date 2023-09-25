@@ -9,9 +9,9 @@ add_executable(DumpReports
 target_include_directories(DumpReports
     PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}
-    ${CMAKE_CURRENT_LIST_DIR}/../STM32_USB_Device_Library-v2.11.1/Class/CompositeBuilder/Inc
-    ${CMAKE_CURRENT_LIST_DIR}/../STM32_USB_Device_Library-v2.11.1/Class/CustomHID/Inc
-    ${CMAKE_CURRENT_LIST_DIR}/../STM32_USB_Device_Library-v2.11.1/Core/Inc
+    ${CMAKE_CURRENT_LIST_DIR}/../STM32_USB_Device_Library/Class/CompositeBuilder/Inc
+    ${CMAKE_CURRENT_LIST_DIR}/../STM32_USB_Device_Library/Class/CustomHID/Inc
+    ${CMAKE_CURRENT_LIST_DIR}/../STM32_USB_Device_Library/Core/Inc
     ${CMAKE_CURRENT_LIST_DIR}/../Core/Inc
     #${CMAKE_CURRENT_LIST_DIR}/../Core/Src
     ${CMAKE_CURRENT_LIST_DIR}/../USB_DEVICE/App
