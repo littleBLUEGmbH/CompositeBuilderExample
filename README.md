@@ -41,11 +41,12 @@ With these modifications the device is enumerated and the descriptors can be rea
   * Some strings are different
 * The is an error (on linux): "hid-multitouch ... : failed to fetch feature 2"; this is out of the scope of this repository but needs to be addressed in the future
 
-Communicating with the endpoints does not work yet:
+The following configuration options need to be set, so endpoint access works:
 
-* When data is written to interface 1 (see "test_itf_1_echo.py"), we expect the function "CUSTOM_HID_1_OutEvent_FS" to be called
-* This has been confirmed with a simple CustomHID application (not a composite device)
-* Possibly still a bug in the STM32_USB_Device_Library?
+* `USBD_CUSTOMHID_OUTREPORT_BUF_SIZE` (in our case to 0x40) needs to be set in the STM32CubeMX configuration
+* `CUSTOM_HID_EPOUT_SIZE` (in out case to 0x40) needs to be set in the STM32CubeIDE configuration
+
+Custom endpoints 0x03/0x83 for interface do not work/no communication possible, see standard endpoints 0x02/0x82 are used.
 
 ## Tools
 
